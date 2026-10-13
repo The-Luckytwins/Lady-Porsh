@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
 import React from "react";
 import { PaymentBadge, SocialNetworks } from "./footer.types";
-import { FaFacebookF, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import Link from "next/link";
 import LinksSection from "./LinksSection";
 import Image from "next/image";
@@ -10,141 +10,44 @@ import NewsLetterSection from "./NewsLetterSection";
 import LayoutSpacing from "./LayoutSpacing";
 
 const socialsData: SocialNetworks[] = [
-  {
-    id: 1,
-    icon: <FaTwitter />,
-    url: "https://twitter.com",
-  },
-  {
-    id: 2,
-    icon: <FaFacebookF />,
-    url: "https://facebook.com",
-  },
-  {
-    id: 3,
-    icon: <FaInstagram />,
-    url: "https://instagram.com",
-  },
-  {
-    id: 4,
-    icon: <FaGithub />,
-    url: "https://github.com/mohammadoftadeh",
-  },
+  { id: 1, icon: <FaInstagram />, url: "https://instagram.com" },
+  { id: 2, icon: <FaFacebookF />, url: "https://facebook.com" },
+  { id: 3, icon: <FaTwitter />, url: "https://twitter.com" },
 ];
-
 const paymentBadgesData: PaymentBadge[] = [
-  {
-    id: 1,
-    srcUrl: "/icons/Visa.svg",
-  },
-  {
-    id: 2,
-    srcUrl: "/icons/mastercard.svg",
-  },
-  {
-    id: 3,
-    srcUrl: "/icons/paypal.svg",
-  },
-  {
-    id: 4,
-    srcUrl: "/icons/applePay.svg",
-  },
-  {
-    id: 5,
-    srcUrl: "/icons/googlePay.svg",
-  },
+  { id: 1, srcUrl: "/icons/Visa.svg" },
+  { id: 2, srcUrl: "/icons/mastercard.svg" },
+  { id: 3, srcUrl: "/icons/paypal.svg" },
+  { id: 4, srcUrl: "/icons/applePay.svg" },
+  { id: 5, srcUrl: "/icons/googlePay.svg" },
 ];
 
-const Footer = () => {
-  return (
-    <footer className="mt-10">
-      <div className="relative">
-        <div className="absolute bottom-0 w-full h-1/2 bg-[#F0F0F0]"></div>
-        <div className="px-4">
-          <NewsLetterSection />
-        </div>
-      </div>
-      <div className="pt-8 md:pt-[50px] bg-[#F0F0F0] px-4 pb-4">
-        <div className="max-w-frame mx-auto">
-          <nav className="lg:grid lg:grid-cols-12 mb-8">
-            <div className="flex flex-col lg:col-span-3 lg:max-w-[248px]">
-              <h1
-                className={cn([
-                  integralCF.className,
-                  "text-[28px] lg:text-[32px] mb-6",
-                ])}
-              >
-                SHOP.CO
-              </h1>
-              <p className="text-black/60 text-sm mb-9">
-                We have clothes that suits your style and which you’re proud to
-                wear. From women to men.
-              </p>
-              <div className="flex items-center">
-                {socialsData.map((social) => (
-                  <Link
-                    href={social.url}
-                    key={social.id}
-                    className="bg-white hover:bg-black hover:text-white transition-all mr-3 w-7 h-7 rounded-full border border-black/20 flex items-center justify-center p-1.5"
-                  >
-                    {social.icon}
-                  </Link>
-                ))}
-              </div>
-            </div>
-            <div className="hidden lg:grid col-span-9 lg:grid-cols-4 lg:pl-10">
-              <LinksSection />
-            </div>
-            <div className="grid lg:hidden grid-cols-2 sm:grid-cols-4">
-              <LinksSection />
-            </div>
-          </nav>
-
-          <hr className="h-[1px] border-t-black/10 mb-6" />
-          <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mb-2">
-            <p className="text-sm text-center sm:text-left text-black/60 mb-4 sm:mb-0 sm:mr-1">
-              Shop.co © Made by{" "}
-              <Link
-                href="https://github.com/mohammadoftadeh"
-                className="text-black font-medium"
-              >
-                Mohammad Oftadeh
-              </Link>
-              {", "}
-              Designed by{" "}
-              <Link
-                href="https://www.figma.com/@hamzauix"
-                className="text-black font-medium"
-              >
-                Hamza Naeem
-              </Link>
-            </p>
-            <div className="flex items-center">
-              {paymentBadgesData.map((badge, _, arr) => (
-                <span
-                  key={badge.id}
-                  className={cn([
-                    arr.length !== badge.id && "mr-3",
-                    "w-[46px] h-[30px] rounded-[5px] border-[#D6DCE5] bg-white flex items-center justify-center",
-                  ])}
-                >
-                  <Image
-                    priority
-                    src={badge.srcUrl}
-                    width={33}
-                    height={100}
-                    alt="user"
-                    className="max-h-[15px]"
-                  />
-                </span>
-              ))}
-            </div>
+const Footer = () => (
+  <footer className="beauty-footer mt-14">
+    <div className="relative">
+      <div className="absolute bottom-0 h-1/2 w-full bg-[#fff3f5]" />
+      <div className="relative px-4"><NewsLetterSection /></div>
+    </div>
+    <div className="bg-[#fff3f5] px-4 pb-5 pt-10 md:pt-12">
+      <div className="mx-auto max-w-frame">
+        <nav className="mb-8 grid gap-8 lg:grid-cols-12">
+          <div className="flex flex-col lg:col-span-4 lg:max-w-[300px]">
+            <Link href="/" className="beauty-display text-3xl text-[#c83f76]">Lady Porsh</Link>
+            <span className="mb-5 mt-1 text-[10px] font-semibold uppercase tracking-[0.32em] text-[#bd466f]">Cosmetics</span>
+            <p className="mb-7 text-sm leading-6 text-[#79676f]">Beauty rituals, thoughtful essentials, and little moments of self-care — made to help you feel like yourself, beautifully.</p>
+            <div className="flex items-center">{socialsData.map((social) => <Link href={social.url} key={social.id} aria-label="Visit our social profile" className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#e9c6d1] bg-white text-[#b83e70] transition hover:bg-[#c83f76] hover:text-white">{social.icon}</Link>)}</div>
           </div>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 lg:col-span-8"><LinksSection /></div>
+        </nav>
+        <hr className="mb-5 border-[#e8cbd4]" />
+        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+          <p className="text-center text-xs text-[#806d75] sm:text-left">© {new Date().getFullYear()} Lady Porsh Cosmetics. Designed and developed by <Link href="https://github.com/DubemUmeh" className="font-semibold text-[#b83e70] underline-offset-4 hover:underline">Dubem Umeh</Link>.</p>
+          <div className="flex items-center">{paymentBadgesData.map((badge, _, arr) => <span key={badge.id} className={cn([arr.length !== badge.id && "mr-2", "flex h-[30px] w-[46px] items-center justify-center rounded-md border border-[#ead5dc] bg-white"])}><Image priority src={badge.srcUrl} width={33} height={15} alt="Payment method" className="max-h-[15px]" /></span>)}</div>
         </div>
-        <LayoutSpacing />
       </div>
-    </footer>
-  );
-};
+      <LayoutSpacing />
+    </div>
+  </footer>
+);
 
 export default Footer;
