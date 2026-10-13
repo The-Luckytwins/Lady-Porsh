@@ -76,7 +76,7 @@ export default function ShopPage() {
               <PaginationContent>
                 <PaginationItem>
                   <PaginationLink
-                    href="#"
+                    href="/shop?page=1"
                     className="text-black/50 font-medium text-sm"
                     isActive
                   >
@@ -85,7 +85,7 @@ export default function ShopPage() {
                 </PaginationItem>
                 <PaginationItem>
                   <PaginationLink
-                    href="#"
+                    href="/shop?page=2"
                     className="text-black/50 font-medium text-sm"
                   >
                     2
@@ -93,7 +93,7 @@ export default function ShopPage() {
                 </PaginationItem>
                 <PaginationItem className="hidden lg:block">
                   <PaginationLink
-                    href="#"
+                    href="/shop?page=3"
                     className="text-black/50 font-medium text-sm"
                   >
                     3
