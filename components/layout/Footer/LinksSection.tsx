@@ -1,139 +1,34 @@
 import React from "react";
 import { FooterLinks } from "./footer.types";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 const footerLinksData: FooterLinks[] = [
-  {
-    id: 1,
-    title: "company",
-    children: [
-      {
-        id: 11,
-        label: "about",
-        url: "#",
-      },
-      {
-        id: 12,
-        label: "features",
-        url: "#",
-      },
-      {
-        id: 13,
-        label: "works",
-        url: "#",
-      },
-      {
-        id: 14,
-        label: "career",
-        url: "#",
-      },
-    ],
-  },
-  {
-    id: 2,
-    title: "help",
-    children: [
-      {
-        id: 21,
-        label: "customer support",
-        url: "#",
-      },
-      {
-        id: 22,
-        label: "delivery details",
-        url: "#",
-      },
-      {
-        id: 23,
-        label: "terms & conditions",
-        url: "#",
-      },
-      {
-        id: 24,
-        label: "privacy policy",
-        url: "#",
-      },
-    ],
-  },
-  {
-    id: 3,
-    title: "faq",
-    children: [
-      {
-        id: 31,
-        label: "account",
-        url: "#",
-      },
-      {
-        id: 32,
-        label: "manage deliveries",
-        url: "#",
-      },
-      {
-        id: 33,
-        label: "orders",
-        url: "#",
-      },
-      {
-        id: 34,
-        label: "payments",
-        url: "#",
-      },
-    ],
-  },
-  {
-    id: 4,
-    title: "resources",
-    children: [
-      {
-        id: 41,
-        label: "Free eBooks",
-        url: "#",
-      },
-      {
-        id: 42,
-        label: "development tutorial",
-        url: "#",
-      },
-      {
-        id: 43,
-        label: "How to - Blog",
-        url: "#",
-      },
-      {
-        id: 44,
-        label: "youtube playlist",
-        url: "#",
-      },
-    ],
-  },
+  { id: 1, title: "Explore", children: [
+    { id: 11, label: "Shop all", url: "/shop" },
+    { id: 12, label: "New arrivals", url: "/shop#new-arrivals" },
+    { id: 13, label: "Best sellers", url: "/shop#top-selling" },
+    { id: 14, label: "Our story", url: "/#our-story" },
+  ]},
+  { id: 2, title: "Beauty", children: [
+    { id: 21, label: "Skincare", url: "/shop#skincare" },
+    { id: 22, label: "Makeup", url: "/shop#makeup" },
+    { id: 23, label: "Hair care", url: "/shop#hair-care" },
+    { id: 24, label: "Fragrance", url: "/shop#fragrance" },
+  ]},
+  { id: 3, title: "Customer care", children: [
+    { id: 31, label: "Contact us", url: "/contact" },
+    { id: 32, label: "Shipping & delivery", url: "/#delivery" },
+    { id: 33, label: "FAQs", url: "/#faq" },
+    { id: 34, label: "Returns", url: "/#returns" },
+  ]},
+  { id: 4, title: "Your account", children: [
+    { id: 41, label: "My account", url: "/#signin" },
+    { id: 42, label: "Shopping bag", url: "/cart" },
+    { id: 43, label: "Privacy policy", url: "/privacy-policy" },
+    { id: 44, label: "Terms & conditions", url: "/terms" },
+  ]},
 ];
 
-const LinksSection = () => {
-  return (
-    <>
-      {footerLinksData.map((item) => (
-        <section className="flex flex-col mt-5" key={item.id}>
-          <h3 className="font-medium text-sm md:text-base uppercase tracking-widest mb-6">
-            {item.title}
-          </h3>
-          {item.children.map((link) => (
-            <Link
-              href={link.url}
-              key={link.id}
-              className={cn([
-                link.id !== 41 && link.id !== 43 && "capitalize",
-                "text-black/60 text-sm md:text-base mb-4 w-fit",
-              ])}
-            >
-              {link.label}
-            </Link>
-          ))}
-        </section>
-      ))}
-    </>
-  );
-};
+const LinksSection = () => <>{footerLinksData.map((item) => <section className="mt-3 flex flex-col" key={item.id}><h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.18em] text-[#392b31] md:text-sm">{item.title}</h3>{item.children.map((link) => <Link href={link.url} key={link.id} className="mb-3 w-fit text-sm text-[#806d75] transition hover:text-[#c83f76]">{link.label}</Link>)}</section>)}</>;
 
 export default LinksSection;
