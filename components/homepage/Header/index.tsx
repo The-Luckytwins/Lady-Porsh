@@ -1,121 +1,41 @@
-import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import * as motion from "framer-motion/client";
 
-const Header = () => {
-  return (
-    <header className="bg-[#F2F0F1] pt-10 md:pt-24 overflow-hidden">
-      <div className="md:max-w-frame mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <section className="max-w-frame px-4">
-          <motion.h2
-            initial={{ y: "100px", opacity: 0, rotate: 10 }}
-            whileInView={{ y: "0", opacity: 1, rotate: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className={cn([
-              integralCF.className,
-              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8",
-            ])}
-          >
-            FIND CLOTHES THAT MATCHES YOUR STYLE
-          </motion.h2>
-          <motion.p
-            initial={{ y: "100px", opacity: 0 }}
-            whileInView={{ y: "0", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-black/60 text-sm lg:text-base mb-6 lg:mb-8 max-w-[545px]"
-          >
-            Browse through our diverse range of meticulously crafted garments,
-            designed to bring out your individuality and cater to your sense of
-            style.
-          </motion.p>
-          <motion.div
-            initial={{ y: "100px", opacity: 0 }}
-            whileInView={{ y: "0", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1, duration: 0.6 }}
-          >
-            <Link
-              href="/shop"
-              className="w-full md:w-52 mb-5 md:mb-12 inline-block text-center bg-black hover:bg-black/80 transition-all text-white px-14 py-4 rounded-full hover:animate-pulse"
-            >
-              Shop Now
-            </Link>
-          </motion.div>
-          <motion.div
-            initial={{ y: "100px", opacity: 0 }}
-            whileInView={{ y: "0", opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-            className="flex md:h-full md:max-h-11 lg:max-h-[52px] xl:max-h-[68px] items-center justify-center md:justify-start flex-wrap sm:flex-nowrap md:space-x-3 lg:space-x-6 xl:space-x-8 md:mb-[116px]"
-          >
-            <div className="flex flex-col">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={200} />+
-              </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                International Brands
-              </span>
-            </div>
-            <Separator
-              className="ml-6 md:ml-0 h-12 md:h-full bg-black/10"
-              orientation="vertical"
-            />
-            <div className="flex flex-col ml-6 md:ml-0">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={2000} />+
-              </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                High-Quality Products
-              </span>
-            </div>
-            <Separator
-              className="hidden sm:block sm:h-12 md:h-full ml-6 md:ml-0 bg-black/10"
-              orientation="vertical"
-            />
-            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={3000} />+
-              </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                Happy Customers
-              </span>
-            </div>
-          </motion.div>
-        </section>
-        <motion.section
-          initial={{ y: "100px", opacity: 0, rotate: 10 }}
-          whileInView={{ y: "0", opacity: 1, rotate: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 2.3, duration: 0.8 }}
-          className="relative md:px-4 min-h-[448px] md:min-h-[428px] bg-cover bg-top xl:bg-[center_top_-1.6rem] bg-no-repeat bg-[url('/images/header-res-homepage.png')] md:bg-[url('/images/header-homepage.png')]"
-        >
-          <Image
-            priority
-            src="/icons/big-star.svg"
-            height={104}
-            width={104}
-            alt="big star"
-            className="absolute right-7 xl:right-0 top-12 max-w-[76px] max-h-[76px] lg:max-w-24 lg:max-h-max-w-24 xl:max-w-[104px] xl:max-h-[104px] animate-[spin_4s_infinite]"
-          />
-          <Image
-            priority
-            src="/icons/small-star.svg"
-            height={56}
-            width={56}
-            alt="small star"
-            className="absolute left-7 md:left-0 top-36 sm:top-64 md:top-44 lg:top-56 max-w-11 max-h-11 md:max-w-14 md:max-h-14 animate-[spin_3s_infinite]"
-          />
-        </motion.section>
-      </div>
-    </header>
-  );
-};
+const Header = () => (
+  <header className="beauty-hero overflow-hidden">
+    <div className="mx-auto grid max-w-frame items-center gap-8 px-5 py-12 sm:px-8 md:min-h-[520px] md:grid-cols-[0.95fr_1.05fr] md:gap-5 md:py-12 lg:px-0">
+      <section className="relative z-10 order-2 md:order-1">
+        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-[#c54b79] sm:text-sm">
+          Premium beauty & skincare
+        </motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 22 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }} className="beauty-display max-w-[620px] text-5xl leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-[76px]">
+          Real Beauty <span className="block text-[#c83f76]">Looks Good On You.</span>
+        </motion.h1>
+        <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.12 }} className="mt-6 max-w-[470px] text-sm leading-7 text-[#6d6267] sm:text-base">
+          Discover skincare, makeup and beauty essentials chosen to bring out your natural glow. Because you deserve to feel beautiful — every day.
+        </motion.p>
+        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mt-7 flex flex-wrap items-center gap-4">
+          <Link href="/shop" className="beauty-button inline-flex min-w-44 items-center justify-center rounded-full px-8 py-4 text-sm font-semibold text-white transition hover:-translate-y-0.5">Shop beauty <span className="ml-3">→</span></Link>
+          <Link href="/shop#new-arrivals" className="text-sm font-semibold text-[#5c404b] underline decoration-[#dca9b8] underline-offset-4">Explore new arrivals</Link>
+        </motion.div>
+        <div className="mt-9 grid max-w-[510px] grid-cols-2 gap-3 text-xs text-[#65565d] sm:grid-cols-3">
+          <span className="beauty-benefit">♡ Authentic beauty picks</span>
+          <span className="beauty-benefit">✧ Thoughtful self-care</span>
+          <span className="beauty-benefit col-span-2 sm:col-span-1">♧ Delivery across Ghana</span>
+        </div>
+      </section>
+      <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="relative order-1 mx-auto min-h-[330px] w-full max-w-[640px] overflow-hidden rounded-[42%_42%_18px_18px] bg-[#f4dce2] md:order-2 md:min-h-[480px]">
+        <Image unoptimized priority fill sizes="(max-width: 768px) 100vw, 50vw" src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1400&q=90" alt="Elegant skincare products arranged for a beauty ritual" className="object-cover object-center" />
+        <div className="absolute bottom-5 left-5 max-w-[220px] rounded-2xl border border-white/70 bg-white/80 p-4 shadow-lg backdrop-blur-md sm:bottom-8 sm:left-8">
+          <span className="block text-[10px] uppercase tracking-[0.2em] text-[#b77b50]">Your daily ritual</span>
+          <span className="beauty-display mt-1 block text-xl text-[#33252b]">A little glow, a lot of love.</span>
+        </div>
+        <span className="absolute right-5 top-5 grid h-16 w-16 place-items-center rounded-full border border-white/80 bg-[#fff9f5]/85 text-center text-[10px] font-semibold uppercase tracking-widest text-[#b77b50]">Love<br/>your skin</span>
+      </motion.div>
+    </div>
+  </header>
+);
 
 export default Header;
