@@ -1,53 +1,22 @@
 import { Button } from "@/components/ui/button";
 import InputGroup from "@/components/ui/input-group";
-import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
 import Image from "next/image";
 import React from "react";
 
-const NewsLetterSection = () => {
-  return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 py-9 md:py-11 px-6 md:px-16 max-w-frame mx-auto bg-black rounded-[20px]">
-      <p
-        className={cn([
-          integralCF.className,
-          "font-bold text-[32px] md:text-[40px] text-white mb-9 md:mb-0",
-        ])}
-      >
-        STAY UP TO DATE ABOUT OUR LATEST OFFERS
-      </p>
-      <div className="flex items-center">
-        <div className="flex flex-col w-full max-w-[349px] mx-auto">
-          <InputGroup className="flex bg-white mb-[14px]">
-            <InputGroup.Text>
-              <Image
-                priority
-                src="/icons/envelope.svg"
-                height={20}
-                width={20}
-                alt="email"
-                className="min-w-5 min-h-5"
-              />
-            </InputGroup.Text>
-            <InputGroup.Input
-              type="email"
-              name="email"
-              placeholder="Enter your email address"
-              className="bg-transparent placeholder:text-black/40 placeholder:text-sm sm:placeholder:text-base"
-            />
-          </InputGroup>
-          <Button
-            variant="secondary"
-            className="text-sm sm:text-base font-medium bg-white h-12 rounded-full px-4 py-3"
-            aria-label="Subscribe to Newsletter"
-            type="button"
-          >
-            Subscribe to Newsletter
-          </Button>
-        </div>
-      </div>
+const NewsLetterSection = () => (
+  <div className="beauty-newsletter relative mx-auto grid max-w-frame grid-cols-1 gap-6 rounded-[26px] px-6 py-8 sm:px-10 md:grid-cols-2 md:items-center md:px-14 md:py-10">
+    <div>
+      <p className="beauty-display text-3xl leading-tight text-white sm:text-4xl">A little beauty in your inbox.</p>
+      <p className="mt-3 max-w-md text-sm leading-6 text-white/80">Get first looks at new arrivals, beauty tips and special offers.</p>
     </div>
-  );
-};
+    <div className="mx-auto flex w-full max-w-[380px] flex-col">
+      <InputGroup className="mb-3 flex rounded-full bg-white">
+        <InputGroup.Text><Image priority src="/icons/envelope.svg" height={20} width={20} alt="Email" className="min-w-5 min-h-5" /></InputGroup.Text>
+        <InputGroup.Input type="email" name="email" placeholder="Enter your email address" className="bg-transparent placeholder:text-[#9b838c]"/>
+      </InputGroup>
+      <Button variant="secondary" className="h-12 rounded-full bg-[#fff8f8] text-sm font-semibold text-[#b83e70] hover:bg-white" aria-label="Subscribe to newsletter" type="button">Join the beauty list</Button>
+    </div>
+  </div>
+);
 
 export default NewsLetterSection;

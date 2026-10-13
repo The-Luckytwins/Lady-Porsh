@@ -1,48 +1,21 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 
+const skinTypes = ["Dry", "Oily", "Combination", "Sensitive", "Normal"];
+
 const SizeSection = () => {
-  const [selected, setSelected] = useState<string>("Large");
+  const [selected, setSelected] = useState<string>("Normal");
 
   return (
     <Accordion type="single" collapsible defaultValue="filter-size">
       <AccordionItem value="filter-size" className="border-none">
-        <AccordionTrigger className="text-black font-bold text-xl hover:no-underline p-0 py-0.5">
-          Size
-        </AccordionTrigger>
-        <AccordionContent className="pt-4 pb-0">
-          <div className="flex items-center flex-wrap">
-            {[
-              "XX-Small",
-              "X-Small",
-              "Small",
-              "Medium",
-              "Large",
-              "X-Large",
-              "XX-Large",
-              "3X-Large",
-              "4X-Large",
-            ].map((size, index) => (
-              <button
-                key={index}
-                type="button"
-                className={cn([
-                  "bg-[#F0F0F0] m-1 flex items-center justify-center px-5 py-2.5 text-sm rounded-full max-h-[39px]",
-                  selected === size && "bg-black font-medium text-white",
-                ])}
-                onClick={() => setSelected(size)}
-              >
-                {size}
-              </button>
-            ))}
+        <AccordionTrigger className="p-0 py-0.5 text-xl font-bold text-[#392b31] hover:no-underline">Skin type</AccordionTrigger>
+        <AccordionContent className="pb-0 pt-4">
+          <div className="flex flex-wrap items-center">
+            {skinTypes.map((type) => <button key={type} type="button" aria-pressed={selected === type} className={cn("m-1 flex min-h-[39px] items-center justify-center rounded-full border px-4 py-2.5 text-sm transition", selected === type ? "border-[#c83f76] bg-[#c83f76] font-medium text-white" : "border-[#ecd7de] bg-[#fff7f7] text-[#715f66] hover:border-[#c83f76]")} onClick={() => setSelected(type)}>{type}</button>)}
           </div>
         </AccordionContent>
       </AccordionItem>

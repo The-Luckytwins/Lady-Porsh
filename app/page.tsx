@@ -6,203 +6,53 @@ import Reviews from "@/components/homepage/Reviews";
 import { Product } from "@/types/product.types";
 import { Review } from "@/types/review.types";
 
+const beautyImages = {
+  serum: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85",
+  makeup: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85",
+  skincare: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=700&q=85",
+  perfume: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=700&q=85",
+  beauty: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=85",
+  lotion: "https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=85",
+};
+
+const product = (id: number, title: string, srcUrl: string, price: number, rating = 4.8, discount = 0): Product => ({
+  id,
+  title,
+  srcUrl,
+  gallery: [srcUrl, beautyImages.skincare, beautyImages.makeup],
+  price,
+  discount: { amount: 0, percentage: discount },
+  rating,
+});
+
 export const newArrivalsData: Product[] = [
-  {
-    id: 1,
-    title: "T-shirt with Tape Details",
-    srcUrl: "/images/pic1.png",
-    gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 120,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    title: "Skinny Fit Jeans",
-    srcUrl: "/images/pic2.png",
-    gallery: ["/images/pic2.png"],
-    price: 260,
-    discount: {
-      amount: 0,
-      percentage: 20,
-    },
-    rating: 3.5,
-  },
-  {
-    id: 3,
-    title: "Chechered Shirt",
-    srcUrl: "/images/pic3.png",
-    gallery: ["/images/pic3.png"],
-    price: 180,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 4.5,
-  },
-  {
-    id: 4,
-    title: "Sleeve Striped T-shirt",
-    srcUrl: "/images/pic4.png",
-    gallery: ["/images/pic4.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 160,
-    discount: {
-      amount: 0,
-      percentage: 30,
-    },
-    rating: 4.5,
-  },
+  product(1, "Rose Glow Hydrating Serum", beautyImages.serum, 28, 4.8),
+  product(2, "Soft Matte Lip Collection", beautyImages.makeup, 22, 4.7),
+  product(3, "Daily Dew Moisturizer", beautyImages.skincare, 32, 4.9),
+  product(4, "Petal Bloom Eau de Parfum", beautyImages.perfume, 45, 4.8),
 ];
 
 export const topSellingData: Product[] = [
-  {
-    id: 5,
-    title: "Vertical Striped Shirt",
-    srcUrl: "/images/pic5.png",
-    gallery: ["/images/pic5.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 232,
-    discount: {
-      amount: 0,
-      percentage: 20,
-    },
-    rating: 5.0,
-  },
-  {
-    id: 6,
-    title: "Courage Graphic T-shirt",
-    srcUrl: "/images/pic6.png",
-    gallery: ["/images/pic6.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 145,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 4.0,
-  },
-  {
-    id: 7,
-    title: "Loose Fit Bermuda Shorts",
-    srcUrl: "/images/pic7.png",
-    gallery: ["/images/pic7.png"],
-    price: 80,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 3.0,
-  },
-  {
-    id: 8,
-    title: "Faded Skinny Jeans",
-    srcUrl: "/images/pic8.png",
-    gallery: ["/images/pic8.png"],
-    price: 210,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 4.5,
-  },
+  product(5, "Radiance Renewal Cream", beautyImages.lotion, 36, 5, 15),
+  product(6, "Everyday Beauty Palette", beautyImages.makeup, 26, 4.7),
+  product(7, "Nourishing Hair Ritual", beautyImages.beauty, 24, 4.8),
+  product(8, "Silk Touch Body Lotion", beautyImages.serum, 19, 4.6, 10),
 ];
 
 export const relatedProductData: Product[] = [
-  {
-    id: 12,
-    title: "Polo with Contrast Trims",
-    srcUrl: "/images/pic12.png",
-    gallery: ["/images/pic12.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 242,
-    discount: {
-      amount: 0,
-      percentage: 20,
-    },
-    rating: 4.0,
-  },
-  {
-    id: 13,
-    title: "Gradient Graphic T-shirt",
-    srcUrl: "/images/pic13.png",
-    gallery: ["/images/pic13.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 145,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 3.5,
-  },
-  {
-    id: 14,
-    title: "Polo with Tipping Details",
-    srcUrl: "/images/pic14.png",
-    gallery: ["/images/pic14.png"],
-    price: 180,
-    discount: {
-      amount: 0,
-      percentage: 0,
-    },
-    rating: 4.5,
-  },
-  {
-    id: 15,
-    title: "Black Striped T-shirt",
-    srcUrl: "/images/pic15.png",
-    gallery: ["/images/pic15.png"],
-    price: 150,
-    discount: {
-      amount: 0,
-      percentage: 30,
-    },
-    rating: 5.0,
-  },
+  product(12, "Golden Hour Face Oil", beautyImages.skincare, 34, 4.8, 20),
+  product(13, "Velvet Rose Lip Color", beautyImages.makeup, 18, 4.7),
+  product(14, "Blush Petals Fragrance", beautyImages.perfume, 42, 4.9),
+  product(15, "Soft Silk Hair Serum", beautyImages.beauty, 21, 4.6, 15),
 ];
 
 export const reviewsData: Review[] = [
-  {
-    id: 1,
-    user: "Alex K.",
-    content:
-      '"Finding clothes that align with my personal style used to be a challenge until I discovered Shop.co. The range of options they offer is truly remarkable, catering to a variety of tastes and occasions.”',
-    rating: 5,
-    date: "August 14, 2023",
-  },
-  {
-    id: 2,
-    user: "Sarah M.",
-    content: `"I'm blown away by the quality and style of the clothes I received from Shop.co. From casual wear to elegant dresses, every piece I've bought has exceeded my expectations.”`,
-    rating: 5,
-    date: "August 15, 2023",
-  },
-  {
-    id: 3,
-    user: "Ethan R.",
-    content: `"This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer's touch in every aspect of this shirt."`,
-    rating: 5,
-    date: "August 16, 2023",
-  },
-  {
-    id: 4,
-    user: "Olivia P.",
-    content: `"As a UI/UX enthusiast, I value simplicity and functionality. This t-shirt not only represents those principles but also feels great to wear. It's evident that the designer poured their creativity into making this t-shirt stand out."`,
-    rating: 5,
-    date: "August 17, 2023",
-  },
-  {
-    id: 5,
-    user: "Liam K.",
-    content: `"This t-shirt is a fusion of comfort and creativity. The fabric is soft, and the design speaks volumes about the designer's skill. It's like wearing a piece of art that reflects my passion for both design and fashion."`,
-    rating: 5,
-    date: "August 18, 2023",
-  },
-  {
-    id: 6,
-    user: "Samantha D.",
-    content: `"I absolutely love this t-shirt! The design is unique and the fabric feels so comfortable. As a fellow designer, I appreciate the attention to detail. It's become my favorite go-to shirt."`,
-    rating: 5,
-    date: "August 19, 2023",
-  },
+  { id: 1, user: "Ama K.", content: "My skincare routine feels like a little luxury now. The products look beautiful and leave my skin feeling so soft.", rating: 5, date: "September 12, 2026" },
+  { id: 2, user: "Sarah M.", content: "The packaging is gorgeous, delivery was smooth, and my new everyday lip colour is perfect. I'll definitely shop again.", rating: 5, date: "September 18, 2026" },
+  { id: 3, user: "Nana A.", content: "I love that I can find skincare, fragrance and makeup in one place. The whole experience feels thoughtful and premium.", rating: 5, date: "September 21, 2026" },
+  { id: 4, user: "Efua D.", content: "The body lotion smells amazing and keeps my skin moisturised. Lady Porsh has quickly become a favourite.", rating: 5, date: "September 25, 2026" },
+  { id: 5, user: "Mimi B.", content: "Beautiful products and such a lovely shopping experience. Everything feels carefully selected.", rating: 5, date: "October 2, 2026" },
+  { id: 6, user: "Abena T.", content: "Found a fragrance that feels like me. I appreciate the elegant presentation and easy shopping experience.", rating: 5, date: "October 5, 2026" },
 ];
 
 export default function Home() {
@@ -210,25 +60,22 @@ export default function Home() {
     <>
       <Header />
       <Brands />
-      <main className="my-[50px] sm:my-[72px]">
-        <ProductListSec
-          title="NEW ARRIVALS"
-          data={newArrivalsData}
-          viewAllLink="/shop#new-arrivals"
-        />
-        <div className="max-w-frame mx-auto px-4 xl:px-0">
-          <hr className="h-[1px] border-t-black/10 my-10 sm:my-16" />
+      <main className="my-12 space-y-12 sm:my-16 sm:space-y-16">
+        <section id="new-arrivals" className="px-4 xl:px-0">
+          <ProductListSec title="New beauty arrivals" data={newArrivalsData} viewAllLink="/shop#new-arrivals" />
+        </section>
+        <div className="mx-auto max-w-frame px-4"><hr className="border-[#ecd7de]" /></div>
+        <section id="top-selling" className="px-4 xl:px-0">
+          <ProductListSec title="Loved by beauty lovers" data={topSellingData} viewAllLink="/shop#top-selling" />
+        </section>
+        <div id="our-story" className="mx-4 rounded-3xl border border-[#efd9e1] bg-gradient-to-r from-[#fff0f4] via-[#fffaf8] to-[#f8e9ed] px-6 py-8 text-center sm:mx-auto sm:max-w-frame sm:px-12 sm:py-10">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.24em] text-[#c54b79]">The Lady Porsh feeling</p>
+          <h2 className="beauty-display text-3xl text-[#30252b] sm:text-4xl">Your beauty. Your ritual. Your moment.</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#79676f] sm:text-base">From everyday skincare to the finishing touch of fragrance, discover beauty essentials chosen to make caring for yourself feel special.</p>
         </div>
-        <div className="mb-[50px] sm:mb-20">
-          <ProductListSec
-            title="top selling"
-            data={topSellingData}
-            viewAllLink="/shop#top-selling"
-          />
-        </div>
-        <div className="mb-[50px] sm:mb-20">
+        <section className="mb-12 px-4 xl:px-0">
           <DressStyle />
-        </div>
+        </section>
         <Reviews data={reviewsData} />
       </main>
     </>
