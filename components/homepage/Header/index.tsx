@@ -27,7 +27,7 @@ const Header = () => (
         </div>
       </section>
       <motion.div initial={{ opacity: 0, scale: 0.97 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7 }} className="relative order-1 mx-auto min-h-[300px] w-full max-w-[690px] overflow-hidden rounded-[48%_48%_12px_12px] bg-[#f4dce2] md:order-2 md:min-h-[450px]">
-        <Image unoptimized priority fill sizes="(max-width: 768px) 100vw, 52vw" src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=1400&q=90" alt="Premium skincare products arranged for a beauty ritual" className="object-cover object-center" />
+        <Image unoptimized priority fill sizes="(max-width: 768px) 100vw, 52vw" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1400&q=90" alt="Beauty campaign portrait with makeup and skincare inspiration" className="object-cover object-[center_28%]" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#fffaf8]/25 via-transparent to-[#c83f76]/10" />
         <div className="absolute bottom-4 left-4 max-w-[220px] rounded-2xl border border-white/70 bg-white/85 p-3 shadow-lg backdrop-blur-md sm:bottom-7 sm:left-7">
           <span className="block text-[10px] uppercase tracking-[0.2em] text-[#b77b50]">Your daily ritual</span>
