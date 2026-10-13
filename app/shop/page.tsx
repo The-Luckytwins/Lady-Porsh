@@ -29,7 +29,7 @@ export default function ShopPage() {
         <hr className="h-[1px] border-t-black/10 mb-5 sm:mb-6" />
         <BreadcrumbShop />
         <div className="flex md:space-x-5 items-start">
-          <div className="hidden md:block min-w-[295px] max-w-[295px] border border-[#ecd7de] bg-white/80 rounded-[20px] px-5 md:px-6 py-5 space-y-5 md:space-y-6">
+          <div className="beauty-shop-filters hidden md:block min-w-[295px] max-w-[295px] border border-[#ecd7de] bg-[#fffaf8] rounded-[20px] px-5 md:px-6 py-5 space-y-5 md:space-y-6 shadow-sm">
             <div className="flex items-center justify-between">
               <span className="font-bold text-[#392b31] text-xl">Filters</span>
               <FiSliders className="text-2xl text-black/40" />
@@ -72,7 +72,7 @@ export default function ShopPage() {
             </div>
             <hr className="border-t-black/10" />
             <Pagination className="justify-between">
-              <PaginationPrevious href="#" className="border border-black/10" />
+              <PaginationPrevious href="/shop?page=1" className="border border-[#ecd7de]" />
               <PaginationContent>
                 <PaginationItem>
                   <PaginationLink
@@ -128,7 +128,7 @@ export default function ShopPage() {
                 </PaginationItem>
               </PaginationContent>
 
-              <PaginationNext href="#" className="border border-black/10" />
+              <PaginationNext href="/shop?page=2" className="border border-[#ecd7de]" />
             </Pagination>
           </div>
         </div>
