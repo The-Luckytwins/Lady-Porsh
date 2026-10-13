@@ -2,48 +2,18 @@ import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-type Category = {
-  title: string;
-  slug: string;
-};
-
-const categoriesData: Category[] = [
-  {
-    title: "T-shirts",
-    slug: "/shop?category=t-shirts",
-  },
-  {
-    title: "Shorts",
-    slug: "/shop?category=shorts",
-  },
-  {
-    title: "Shirts",
-    slug: "/shop?category=shirts",
-  },
-  {
-    title: "Hoodie",
-    slug: "/shop?category=hoodie",
-  },
-  {
-    title: "Jeans",
-    slug: "/shop?category=jeans",
-  },
+const categoriesData = [
+  { title: "Skincare", slug: "/shop?category=skincare" },
+  { title: "Makeup", slug: "/shop?category=makeup" },
+  { title: "Hair care", slug: "/shop?category=hair-care" },
+  { title: "Fragrance", slug: "/shop?category=fragrance" },
+  { title: "Body care", slug: "/shop?category=body-care" },
 ];
 
-const CategoriesSection = () => {
-  return (
-    <div className="flex flex-col space-y-0.5 text-black/60">
-      {categoriesData.map((category, idx) => (
-        <Link
-          key={idx}
-          href={category.slug}
-          className="flex items-center justify-between py-2"
-        >
-          {category.title} <MdKeyboardArrowRight />
-        </Link>
-      ))}
-    </div>
-  );
-};
+const CategoriesSection = () => (
+  <div className="flex flex-col space-y-0.5 text-[#806d75]">
+    {categoriesData.map((category) => <Link key={category.title} href={category.slug} className="flex items-center justify-between py-2 transition hover:text-[#c83f76]">{category.title}<MdKeyboardArrowRight /></Link>)}
+  </div>
+);
 
 export default CategoriesSection;
