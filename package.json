@@ -2,7 +2,9 @@
   "name": "Lady-Porsh",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@10.11.1",
   "scripts": {
+    "preinstall": "node -e \"if (!process.env.npm_config_user_agent?.startsWith('pnpm/')) { console.error('This project uses pnpm. Run: pnpm install'); process.exit(1) }\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
