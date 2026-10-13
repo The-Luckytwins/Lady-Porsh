@@ -4,10 +4,7 @@ import Link from "next/link";
 import React from "react";
 import { NavMenu } from "../navbar.types";
 import { MenuList } from "./MenuList";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+import { NavigationMenu, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { MenuItem } from "./MenuItem";
 import Image from "next/image";
 import InputGroup from "@/components/ui/input-group";
@@ -15,136 +12,46 @@ import ResTopNavbar from "./ResTopNavbar";
 import CartBtn from "./CartBtn";
 
 const data: NavMenu = [
-  {
-    id: 1,
-    label: "Shop",
-    type: "MenuList",
-    children: [
-      {
-        id: 11,
-        label: "Men's clothes",
-        url: "/shop#men-clothes",
-        description: "In attractive and spectacular colors and designs",
-      },
-      {
-        id: 12,
-        label: "Women's clothes",
-        url: "/shop#women-clothes",
-        description: "Ladies, your style and tastes are important to us",
-      },
-      {
-        id: 13,
-        label: "Kids clothes",
-        url: "/shop#kids-clothes",
-        description: "For all ages, with happy and beautiful colors",
-      },
-      {
-        id: 14,
-        label: "Bags and Shoes",
-        url: "/shop#bag-shoes",
-        description: "Suitable for men, women and all tastes and styles",
-      },
-    ],
-  },
-  {
-    id: 2,
-    type: "MenuItem",
-    label: "On Sale",
-    url: "/shop#on-sale",
-    children: [],
-  },
-  {
-    id: 3,
-    type: "MenuItem",
-    label: "New Arrivals",
-    url: "/shop#new-arrivals",
-    children: [],
-  },
-  {
-    id: 4,
-    type: "MenuItem",
-    label: "Brands",
-    url: "/shop#brands",
-    children: [],
-  },
+  { id: 1, label: "Shop", type: "MenuList", children: [
+    { id: 11, label: "Skincare", url: "/shop#skincare", description: "Daily care for healthy, glowing skin" },
+    { id: 12, label: "Makeup", url: "/shop#makeup", description: "Beauty essentials for every look" },
+    { id: 13, label: "Hair care", url: "/shop#hair-care", description: "Nourish and care for your hair" },
+    { id: 14, label: "Fragrance", url: "/shop#fragrance", description: "Find your signature scent" },
+  ]},
+  { id: 2, type: "MenuItem", label: "On Sale", url: "/shop#on-sale", children: [] },
+  { id: 3, type: "MenuItem", label: "New Arrivals", url: "/shop#new-arrivals", children: [] },
+  { id: 4, type: "MenuItem", label: "Our Story", url: "/#our-story", children: [] },
 ];
 
-const TopNavbar = () => {
-  return (
-    <nav className="sticky top-0 bg-white z-20">
-      <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
-        <div className="flex items-center">
-          <div className="block md:hidden mr-4">
-            <ResTopNavbar data={data} />
-          </div>
-          <Link
-            href="/"
-            className={cn([
-              integralCF.className,
-              "text-2xl lg:text-[32px] mb-2 mr-3 lg:mr-10",
-            ])}
-          >
-            SHOP.CO
-          </Link>
-        </div>
-        <NavigationMenu className="hidden md:flex mr-2 lg:mr-7">
-          <NavigationMenuList>
-            {data.map((item) => (
-              <React.Fragment key={item.id}>
-                {item.type === "MenuItem" && (
-                  <MenuItem label={item.label} url={item.url} />
-                )}
-                {item.type === "MenuList" && (
-                  <MenuList data={item.children} label={item.label} />
-                )}
-              </React.Fragment>
-            ))}
-          </NavigationMenuList>
-        </NavigationMenu>
-        <InputGroup className="hidden md:flex bg-[#F0F0F0] mr-3 lg:mr-10">
-          <InputGroup.Text>
-            <Image
-              priority
-              src="/icons/search.svg"
-              height={20}
-              width={20}
-              alt="search"
-              className="min-w-5 min-h-5"
-            />
-          </InputGroup.Text>
-          <InputGroup.Input
-            type="search"
-            name="search"
-            placeholder="Search for products..."
-            className="bg-transparent placeholder:text-black/40"
-          />
-        </InputGroup>
-        <div className="flex items-center">
-          <Link href="/search" className="block md:hidden mr-[14px] p-1">
-            <Image
-              priority
-              src="/icons/search-black.svg"
-              height={100}
-              width={100}
-              alt="search"
-              className="max-w-[22px] max-h-[22px]"
-            />
-          </Link>
-          <CartBtn />
-          <Link href="/#signin" className="p-1">
-            <Image
-              priority
-              src="/icons/user.svg"
-              height={100}
-              width={100}
-              alt="user"
-              className="max-w-[22px] max-h-[22px]"
-            />
-          </Link>
-        </div>
+const TopNavbar = () => (
+  <nav className="beauty-nav sticky top-0 z-20">
+    <div className="relative mx-auto flex max-w-frame items-center justify-between gap-3 px-4 py-4 sm:py-5 xl:px-0">
+      <div className="flex shrink-0 items-center">
+        <div className="mr-3 block md:hidden"><ResTopNavbar data={data} /></div>
+        <Link href="/" aria-label="Lady Porsh Cosmetics home" className="beauty-logo flex flex-col leading-none">
+          <span className="beauty-display text-[27px] sm:text-[32px]">Lady Porsh</span>
+          <span className="mt-1 text-center text-[9px] font-semibold uppercase tracking-[0.34em] text-[#bd466f]">Cosmetics</span>
+        </Link>
       </div>
-    </nav>
-  );
-};
+      <NavigationMenu className="hidden md:flex">
+        <NavigationMenuList>
+          {data.map((item) => <React.Fragment key={item.id}>
+            {item.type === "MenuItem" && <MenuItem label={item.label} url={item.url} />}
+            {item.type === "MenuList" && <MenuList data={item.children} label={item.label} />}
+          </React.Fragment>)}
+        </NavigationMenuList>
+      </NavigationMenu>
+      <InputGroup className="hidden min-w-0 max-w-[430px] flex-1 rounded-full bg-[#f8e9ed] md:flex">
+        <InputGroup.Text><Image priority src="/icons/search.svg" height={20} width={20} alt="Search" className="min-w-5 min-h-5" /></InputGroup.Text>
+        <InputGroup.Input type="search" name="search" placeholder="Search beauty, skincare and more..." className="bg-transparent placeholder:text-[#8c7a81]" />
+      </InputGroup>
+      <div className="flex shrink-0 items-center">
+        <Link href="/search" className="mr-2 block p-1 md:hidden" aria-label="Search"><Image priority src="/icons/search-black.svg" height={22} width={22} alt="" /></Link>
+        <CartBtn />
+        <Link href="/#signin" className="p-1" aria-label="Your account"><Image priority src="/icons/user.svg" height={22} width={22} alt="" /></Link>
+      </div>
+    </div>
+  </nav>
+);
 
 export default TopNavbar;
